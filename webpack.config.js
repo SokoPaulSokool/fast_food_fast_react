@@ -1,8 +1,9 @@
 const webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 // import path from 'path';
+const { join, resolve } = require('path');
 module.exports = {
-  entry: './src/index',
+  entry: './src/index.jsx',
   module: {
     rules: [
       {
@@ -38,7 +39,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: resolve(__dirname, 'src', 'index.html'),
       filename: './index.html'
     })
   ]
