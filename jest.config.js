@@ -33,5 +33,8 @@ module.exports = {
   transformIgnorePatterns: ['<rootDir>/node_modules/', 'serviceWorker.js'],
 
   // Indicates whether each individual test should be reported during the run
-  verbose: false
+  verbose: false,
+  moduleNameMapper: {
+    '^.+\\.(css|less|scss)$': 'identity-obj-proxy'
+  }
 };
