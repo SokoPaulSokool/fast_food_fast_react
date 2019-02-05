@@ -13,5 +13,6 @@ before_script:
   - ./cc-test-reporter before-build
 script:
   - yarn run test:cov
+  - yarn run lint
 after_script:
   - ./cc-test-reporter after-build --debug --exit-code $TRAVIS_TEST_RESULT
