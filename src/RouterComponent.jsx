@@ -1,14 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { LandingView } from './views/landingView/LandingView';
+import NavBar from './components/navbar/NavBar';
 
 const RouterComponent = () => {
   return (
     <Router>
       <div>
-        <Link to="nn">nnnn</Link>
+        <NavBar />
         <Switch>
-          <Route path="/nn" component={LandingView} exact />
+          <Route path="/" component={LandingView} exact />
+          <Route path="/menu" component={LandingView} exact />
           pspps
         </Switch>
       </div>

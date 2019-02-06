@@ -1,0 +1,31 @@
+@import './variables';
+.primary-color {
+  color: $primary-color !important;
+}
+.primary-text-color {
+  color: $primary-color !important;
+}
+.primary-text-color {
+  color: $primary-color !important;
+}
+
+.bg-primary {
+  background-color: $primary-color !important;
+}
+.primary-color-dark {
+  background-color: $primary-color-dark !important;
+}
+
+.secondary-color {
+  color: $secondary-color !important;
+}
+.secondary-text-color {
+  color: $secondary-color !important;
+}
+
+.bg-secondary {
+  background-color: $secondary-color !important;
+}
+.secondary-color-dark {
+  background-color: $secondary-color-dark !important;
+}
