@@ -6,12 +6,7 @@ import {
   MDBNavItem,
   MDBNavLink,
   MDBNavbarToggler,
-  MDBCollapse,
-  MDBFormInline,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem
+  MDBCollapse
 } from 'mdbreact';
 
 class NavBar extends Component {
@@ -36,7 +31,7 @@ class NavBar extends Component {
         <MDBCollapse id="navbarCollapse3" navbar>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <MDBNavLink to="nn">Home</MDBNavLink>
+              <MDBNavLink to="/">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink to="menu">Menu</MDBNavLink>

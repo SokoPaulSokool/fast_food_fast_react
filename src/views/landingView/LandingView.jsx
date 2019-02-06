@@ -4,7 +4,6 @@ import {
   MDBMask,
   MDBRow,
   MDBCol,
-  MDBIcon,
   MDBBtn,
   MDBView,
   MDBContainer,
@@ -13,6 +12,7 @@ import {
   MDBInput
 } from 'mdbreact';
 import './LandingView.scss';
+import { Link } from 'react-router-dom';
 
 export class LandingView extends Component {
   constructor(props) {
@@ -23,9 +23,9 @@ export class LandingView extends Component {
   render() {
     return (
       <MDBContainer fluid className="m-0 p-0">
-        <div id="apppage">
+        <div>
           <MDBView>
-            <MDBMask className="d-flex justify-content-center align-items-center gradient">
+            <MDBMask className="d-flex justify-content-center align-items-center ">
               <MDBContainer>
                 <MDBRow>
                   <div className="primary-text-color text-center text-md-left col-xs-12 col-md-6 mt-xl-5 mb-5">
@@ -34,7 +34,11 @@ export class LandingView extends Component {
                     </h1>
                     <hr className="hr-light" />
                     <h6 className="mb-4">We deliver food. Order now</h6>
-                    <MDBBtn className="bg-secondary">LogIn</MDBBtn>
+
+                    <Link to="signup">
+                      <MDBBtn className="bg-secondary">Signup</MDBBtn>
+                    </Link>
+
                     <MDBBtn outline color="orange">
                       Read More
                     </MDBBtn>
@@ -43,7 +47,7 @@ export class LandingView extends Component {
                     <MDBCard className="dark-grey-text">
                       <MDBCardBody className="z-depth-2">
                         <h3 className="dark-grey-text text-center">
-                          <strong>Sign Up</strong>
+                          <strong>Log in</strong>
                         </h3>
                         <hr />
                         <MDBInput label="Your name" icon="user" />
