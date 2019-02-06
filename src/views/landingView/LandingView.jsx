@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import {
   MDBMask,
   MDBRow,
@@ -11,16 +13,50 @@ import {
   MDBCardBody,
   MDBInput
 } from 'mdbreact';
+import { toast } from 'react-toastify';
 import './LandingView.scss';
 import { Link } from 'react-router-dom';
+import { logInAction } from '../../actions/authAction';
 
 export class LandingView extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { errors: { message: '' } };
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { errors, user } = nextProps;
+    const { history } = this.props;
+    if (errors) {
+      this.setState({ errors: errors });
+    }
+    if (user.user_name) {
+      toast.success('Sign up was successful. You can now login', {
+        position: toast.POSITION.TOP_CENTER
+      });
+      setTimeout(() => {
+        history.push('./');
+      }, 3000);
+    }
+  }
+
+  submit = e => {
+    e.preventDefault();
+    const { email, password } = this.state;
+    const { logInAction } = this.props;
+    const data = {
+      email: email,
+      password: password
+    };
+
+    logInAction(data);
+  };
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   render() {
+    const { errors } = this.state;
     return (
       <MDBContainer fluid className="m-0 p-0">
         <div>
@@ -50,13 +86,34 @@ export class LandingView extends Component {
                           <strong>Log in</strong>
                         </h3>
                         <hr />
-                        <MDBInput label="Your name" icon="user" />
-                        <MDBInput label="Your email" icon="envelope" />
+                        <form>
+                          <MDBInput
+                            onChange={this.onChange}
+                            name="email"
+                            label="Your email"
+                            icon="envelope"
+                          />
+                          <MDBInput
+                            onChange={this.onChange}
+                            type="password"
+                            name="password"
+                            label="Your password"
+                            icon="lock"
+                          />
+                          <p className="red-text">{errors.message}</p>
 
-                        <div className="text-center mt-3 black-text">
-                          <MDBBtn className="bg-secondary">Send</MDBBtn>
-                          <hr />
-                        </div>
+                          <div className="text-center mt-3 black-text">
+                            <MDBBtn
+                              type="submit"
+                              onClick={this.submit}
+                              className="bg-secondary"
+                              color="orange"
+                            >
+                              Submit
+                            </MDBBtn>
+                            <hr />
+                          </div>
+                        </form>
                       </MDBCardBody>
                     </MDBCard>
                   </MDBCol>
@@ -69,10 +126,23 @@ export class LandingView extends Component {
     );
   }
 }
-LandingView.propTypes = {};
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(LandingView);
-export default LandingView;
+LandingView.propTypes = {
+  logInAction: PropTypes.func.isRequired,
+  history: PropTypes.shape({}).isRequired,
+  errors: PropTypes.shape({}),
+  user: PropTypes.shape({})
+};
+
+LandingView.defaultProps = {
+  errors: { message: '' },
+  user: {}
+};
+const mapStateToProps = state => {
+  return { user: state.auth.user, errors: state.auth.errors };
+};
+
+export default connect(
+  mapStateToProps,
+  { logInAction }
+)(LandingView);

@@ -35,12 +35,19 @@ const logInAction = data => dispatch => {
     body: JSON.stringify(data)
   })
     .then(res => res.json())
-    .then(data =>
-      dispatch({
-        type: actionType.LIKE,
-        payload: data
-      })
-    );
+    .then(data => {
+      if (data.message) {
+        dispatch({
+          type: actionType.LOGIN_ACTION_ERRORS,
+          payload: data
+        });
+      } else {
+        dispatch({
+          type: actionType.LOGIN_ACTION,
+          payload: data
+        });
+      }
+    });
 };
 
 export { signUpAction, logInAction };

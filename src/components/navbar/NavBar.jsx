@@ -9,7 +9,7 @@ import {
   MDBCollapse
 } from 'mdbreact';
 
-class NavBar extends Component {
+export class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
