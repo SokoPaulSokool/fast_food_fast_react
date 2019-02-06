@@ -1,4 +1,5 @@
 @import './variables';
+
 .primary-color {
   color: $primary-color !important;
 }
@@ -25,9 +26,18 @@
 
 .bg-secondary {
   background-color: $secondary-color !important;
+  &:hover {
+    background-color: $secondary-color !important;
+  }
 }
 .secondary-color-dark {
   background-color: $secondary-color-dark !important;
+}
+a.bg-secondary:hover,
+a.bg-secondary:focus,
+button.bg-secondary:hover,
+button.bg-secondary:focus {
+  background-color: $success-color !important;
 }
 
 .gradient {

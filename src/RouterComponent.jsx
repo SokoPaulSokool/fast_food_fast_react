@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { LandingView } from './views/landingView/LandingView';
+import LandingView from './views/landingView/LandingView';
 import NavBar from './components/navbar/NavBar';
 import Signup from './views/signupComponent/Signup';
 

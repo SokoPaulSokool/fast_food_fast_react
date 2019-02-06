@@ -68,10 +68,11 @@ export class Signup extends Component {
               <MDBInput
                 onChange={this.onChange}
                 name="password"
+                type="password"
                 label="Your password"
                 icon="lock"
               />
-              <p>{errors.message}</p>
+              <p className="red-text">{errors.message}</p>
 
               <div className="text-center mt-3 black-text">
                 <MDBBtn

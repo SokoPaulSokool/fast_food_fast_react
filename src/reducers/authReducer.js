@@ -19,6 +19,18 @@ export default function(state = initialState, action) {
         errors: action.payload,
         user: {}
       };
+    case actionTypes.LOGIN_ACTION:
+      return {
+        ...state,
+        user: action.payload,
+        errors: { message: '' }
+      };
+    case actionTypes.LOGIN_ACTION_ERRORS:
+      return {
+        ...state,
+        errors: action.payload,
+        user: {}
+      };
     default:
       return state;
   }
