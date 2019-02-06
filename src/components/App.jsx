@@ -14,7 +14,6 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <RouterComponent />
-        mamma
       </Provider>
     );
   }
