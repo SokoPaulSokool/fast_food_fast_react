@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import './App.scss';
 import store from '../store';
+import RouterComponent from '../RouterComponent';
 
 export class App extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ export class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>Fast food fast</div>
+        <RouterComponent />
+        mamma
       </Provider>
     );
   }

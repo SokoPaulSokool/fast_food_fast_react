@@ -14,6 +14,6 @@ function setup() {
 describe('First test', () => {
   it('Should have div', () => {
     const { wrapper } = setup();
-    expect(wrapper.find('div').exists()).toBe(true);
+    expect(wrapper.find('Provider').exists()).toBe(true);
   });
 });
