@@ -51,7 +51,7 @@
     "jest": "^24.0.0",
     "jest-transform-css": "^2.0.0",
     "mdbreact": "^4.10.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",
     "open": "^6.4.0",
     "prop-types": "^15.6.2",
